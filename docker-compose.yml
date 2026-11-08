@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  headscale:
+    image: headscale/headscale:0.22.3
+    container_name: headscale
+    restart: unless-stopped
+    volumes:
+      - ./config/headscale:/etc/headscale
+      - ./data/headscale:/var/lib/headscale
+    ports:
+      - '8080:8080'
+      - '9090:9090'
+    command: headscale serve
+
+  adguard:
+    image: adguard/adguardhome:v0.107.43
+    container_name: adguard-dns
+    restart: unless-stopped
+    volumes:
+      - ./config/adguard:/opt/adguardhome/conf
+      - ./data/adguard:/opt/adguardhome/work
+    ports:
+      - '100.64.0.1:53:53/tcp'
+      - '100.64.0.1:53:53/udp'
+      - '100.64.0.1:3000:3000/tcp'
