@@ -5,7 +5,7 @@ private_key_path: /var/lib/headscale/private.key
 noise:
   private_key_path: /var/lib/headscale/noise_private.key
 ip_prefixes:
-  - 100.64.0.0/24
+  - 100.64.0.0/10
 derp:
   server:
     enabled: false
@@ -13,6 +13,7 @@ derp:
     - https://controlplane.tailscale.com/derpmap/default
 db_type: sqlite3
 db_path: /var/lib/headscale/db.sqlite
+acl_policy_path: /etc/headscale/acl.hujson
 dns_config:
   override_local_dns: true
   nameservers:

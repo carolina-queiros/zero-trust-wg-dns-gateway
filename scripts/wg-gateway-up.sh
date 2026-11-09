@@ -3,8 +3,8 @@ set -e
 
 WG_IF='wg0'
 WAN_IF='eth0'
-VPN_SUBNET='100.64.0.0/24'
-MTU_VAL=1420
+VPN_SUBNET='100.64.0.0/10'
+MTU_VAL=1280
 
 echo '[*] enabling ipv4 forwarding...'
 sysctl -w net.ipv4.ip_forward=1 > /dev/null
