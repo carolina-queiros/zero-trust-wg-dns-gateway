@@ -1,0 +1,14 @@
+{
+  "groups": {
+    "group:admin": ["carolina@"],
+    "group:dev": ["carolina@", "laptop-node@"]
+  },
+  "tagOwners": {
+    "tag:proxmox": ["group:admin"],
+    "tag:db-nodes": ["group:admin"]
+  },
+  "acls": [
+    { "action": "accept", "src": ["group:admin"], "dst": ["*:*"] },
+    { "action": "accept", "src": ["group:dev"], "dst": ["tag:db-nodes:5432,1521", "tag:proxmox:8006"] }
+  ]
+}

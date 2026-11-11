@@ -1,0 +1,19 @@
+bind_host: 100.64.0.1
+bind_port: 3000
+dns:
+  bind_hosts:
+    - 100.64.0.1
+  port: 53
+  upstream_dns:
+    - https://dns.quad9.net/dns-query
+    - https://cloudflare-dns.com/dns-query
+  bootstrap_dns:
+    - 9.9.9.9
+    - 1.1.1.1
+  rewrites:
+    - domain: '*.lab.internal'
+      answer: 100.64.0.2
+    - domain: 'pve.lab.internal'
+      answer: 10.10.20.10
+    - domain: 'grafana.lab.internal'
+      answer: 10.10.20.15
